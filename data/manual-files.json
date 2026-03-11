@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Controle Extensões",
+    "type": "Planilha",
+    "category": "Controle e Financeiro",
+    "description": "Planilha central de acompanhamento de extensões, pagamentos, prazos e validações.",
+    "url": "https://docs.google.com/spreadsheets/d/1yeFlBBZSMHqTziM7QBB3IVkMJQgXqTbvDEz9SvXXKDw",
+    "updated": "Atualizado recentemente",
+    "featured": true,
+    "source": "manual"
+  },
+  {
+    "title": "Orçamento Mensal Familia",
+    "type": "Planilha",
+    "category": "Controle e Financeiro",
+    "description": "Organização mensal de receitas, gastos e despesas recorrentes.",
+    "url": "https://docs.google.com/spreadsheets/d/1UbvJ64yie1vM6vwacHfFL57A1XLxyE7IykRqe9n1gck",
+    "updated": "Atualizado recentemente",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "MAPA - Mentalidade Criativa e Empreendedora",
+    "type": "PDF",
+    "category": "MAPAs e Atividades",
+    "description": "Atividade com foco em SWOT, prototipagem e desenvolvimento empreendedor.",
+    "url": "https://drive.google.com/file/d/11w7CRTPyVOZ_uXanVyELUMsCHpQnGNaJ/view",
+    "updated": "Fev/2026",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "MAPA - Teologia - Espiritualidade Cristã",
+    "type": "DOCX",
+    "category": "MAPAs e Atividades",
+    "description": "Material estruturado com resposta teológica, plano pastoral e referências.",
+    "url": "https://drive.google.com/file/d/1bRjk7FpHJPEGAHDJs_Uc8yeBBr-xVLpB/view",
+    "updated": "Fev/2026",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "MAPA - Metodologia do Ensino de Futsal e Futebol",
+    "type": "DOCX",
+    "category": "MAPAs e Atividades",
+    "description": "Conteúdo acadêmico voltado à metodologia do ensino esportivo.",
+    "url": "https://drive.google.com/file/d/1BeCkQ-ZUqTCbWjWYEb5PWpf5BLA2BhcW/view",
+    "updated": "Fev/2026",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "MAPA - Gestão da Qualidade",
+    "type": "PDF",
+    "category": "MAPAs e Atividades",
+    "description": "Atividade envolvendo GQT, ISO 9001 e indicadores de desempenho.",
+    "url": "https://drive.google.com/file/d/16zmsZG69uqeXGrQ82Kdi5Wt_toEn72eY/view",
+    "updated": "Fev/2026",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "Atividade 1 - Estágio Supervisionado VI",
+    "type": "PDF",
+    "category": "Estágio e Formação",
+    "description": "Documento de estágio com orientações, cronograma e questionário da disciplina.",
+    "url": "https://drive.google.com/file/d/1cLJD5wiiWGI3oFFkyQOUlp05qodSyqO_/view",
+    "updated": "Fev/2026",
+    "featured": false,
+    "source": "manual"
+  },
+  {
+    "title": "Relatório de Evidência - Contação de História",
+    "type": "DOCX",
+    "category": "Extensão e Evidências",
+    "description": "Registro extensionista com evidências, imagens e relato reflexivo da atividade.",
+    "url": "https://drive.google.com/file/d/1XmBACEpTAM45YRi3Ls5OcuTGMS8Dbi7G/view",
+    "updated": "Mar/2026",
+    "featured": true,
+    "source": "manual"
+  }
+]

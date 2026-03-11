@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal de Arquivos</title>
+  <meta name="description" content="Portal profissional para organizar arquivos por categoria com integração opcional ao Google Drive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__bg"></div>
+      <div class="container hero__content">
+        <div class="hero__left">
+          <span class="pill">Central inteligente de arquivos</span>
+          <h1 id="appTitle">Portal de Arquivos</h1>
+          <p id="appSubtitle" class="hero__subtitle">
+            Organize, localize e apresente seus materiais com uma experiência elegante, prática e pronta para GitHub Pages.
+          </p>
+
+          <div class="hero__actions">
+            <a id="openFolderBtn" class="btn btn--primary" href="#" target="_blank" rel="noreferrer">Abrir pasta principal</a>
+            <button id="openUploadModalBtn" class="btn btn--ghost" type="button">Adicionar arquivo</button>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta-card">
+              <span class="meta-card__label">Arquivos</span>
+              <strong id="statFiles">0</strong>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Categorias</span>
+              <strong id="statCategories">0</strong>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Origem</span>
+              <strong id="statSource">Manual</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero__right glass-card">
+          <div class="panel-head">
+            <h2>Resumo rápido</h2>
+            <span class="status-dot"></span>
+          </div>
+          <div id="categorySummary" class="summary-list"></div>
+          <div class="info-box">
+            <strong>Como funciona</strong>
+            <p>
+              Você pode listar arquivos automaticamente de uma pasta pública do Google Drive ou complementar com itens manuais em JSON.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="container main-layout">
+      <section class="toolbar glass-card">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 4.02 11.61l4.44 4.44 1.41-1.41-4.44-4.44A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"></path></svg>
+          <input id="searchInput" type="text" placeholder="Buscar por título, categoria, tipo ou descrição..." />
+        </div>
+
+        <div class="toolbar__actions">
+          <select id="sortSelect" class="select-control">
+            <option value="recent">Mais recentes</option>
+            <option value="az">A-Z</option>
+            <option value="type">Tipo</option>
+            <option value="category">Categoria</option>
+          </select>
+          <button id="exportJsonBtn" class="btn btn--light" type="button">Exportar JSON</button>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <aside class="sidebar glass-card">
+          <div class="sidebar__section">
+            <div class="sidebar__title-row">
+              <h3>Categorias</h3>
+              <span id="resultCountBadge" class="count-badge">0</span>
+            </div>
+            <div id="categoryFilters" class="filter-list"></div>
+          </div>
+
+          <div class="sidebar__section">
+            <h3>Destaques</h3>
+            <div id="featuredList" class="featured-list"></div>
+          </div>
+        </aside>
+
+        <section class="content-area">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Organização central</p>
+              <h2>Arquivos disponíveis</h2>
+            </div>
+            <span id="resultCountText" class="muted-text">0 resultados</span>
+          </div>
+
+          <div id="cardsGrid" class="cards-grid"></div>
+          <div id="emptyState" class="empty-state hidden">
+            <div class="empty-state__icon">⌕</div>
+            <h3>Nenhum arquivo encontrado</h3>
+            <p>Tente mudar a busca, a ordenação ou a categoria selecionada.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="uploadModal" class="modal hidden" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal="true"></div>
+    <div class="modal__dialog glass-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__header">
+        <div>
+          <p class="eyebrow">Cadastro rápido</p>
+          <h3 id="modalTitle">Adicionar arquivo manualmente</h3>
+        </div>
+        <button id="closeUploadModalBtn" class="icon-btn" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <form id="manualFileForm" class="form-grid">
+        <label>
+          <span>Título</span>
+          <input name="title" required type="text" placeholder="Ex.: MAPA - Gestão de Pessoas" />
+        </label>
+        <label>
+          <span>Categoria</span>
+          <input name="category" required type="text" placeholder="Ex.: MAPAs e Atividades" />
+        </label>
+        <label>
+          <span>Tipo</span>
+          <input name="type" required type="text" placeholder="Ex.: PDF, DOCX, Planilha" />
+        </label>
+        <label>
+          <span>URL</span>
+          <input name="url" required type="url" placeholder="https://..." />
+        </label>
+        <label class="full-span">
+          <span>Descrição</span>
+          <textarea name="description" rows="3" placeholder="Breve resumo do conteúdo"></textarea>
+        </label>
+        <label>
+          <span>Data/legenda</span>
+          <input name="updated" type="text" placeholder="Ex.: Mar/2026" />
+        </label>
+        <label class="checkbox-label">
+          <input name="featured" type="checkbox" />
+          <span>Marcar como destaque</span>
+        </label>
+
+        <div class="modal__footer full-span">
+          <button type="button" id="clearLocalDataBtn" class="btn btn--ghost-danger">Limpar itens locais</button>
+          <button type="submit" class="btn btn--primary">Salvar arquivo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
